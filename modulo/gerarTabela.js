@@ -10,6 +10,7 @@ status = false;
 
 else if (isNaN(valor1) || isNaN(valor2))
 
+
 status = false;
 
 else {
