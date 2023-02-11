@@ -1,7 +1,7 @@
 /*********************************************************************************************************
  * Autor: Lohannes
  * Data: 11/02/2023
- * Versão: 1.0.2.11.23
+ * Versão: 1.1.2.11.23
  * Objetivo: Aplicativo que irá gerar uma ou duas tabela de ímpares ou pares. 
  *********************************************************************************************************/
 
@@ -21,10 +21,12 @@ entradaDados.question('Digite um número de início entre 0 e 500: ', function (
         let valor2 = numeroFinal;
         entradaDados.question('Qual tabela irá querer?:\n\n- Ímpar\n- Par\n- Ambos\n\n',
             function (qualTabela) {
-                let modo = qualTabela.toUpperCase();
-
+                let modo = qualTabela.toUpperCase().replace('Í','I');
                 if (modo != 'IMPAR' && modo != 'PAR' && modo != 'AMBOS') {
                     console.log('ERRO: Esse modo não existe!');
+                    entradaDados.close();
+                } else if(valor1 % 1 !== 0 || valor2 % 1 !== 0){
+                    console.log('ERRO: Apenas números inteiros são aceitos!');
                     entradaDados.close();
                 } else if (valor1 == '' || valor2 == '' || modo == '') {
                     console.log('ERRO: Nenhum dado deve estar vazio!');

@@ -1,14 +1,14 @@
 /*********************************************************************************************************
  * Autor: Lohannes
  * Data: 11/02/2023
- * Versão: 1.0.2.11.23
+ * Versão: 1.1.2.11.23
  * Objetivo: Gerar uma ou duas tabelas que apresentarão números pares ou impares entre números escolhidos. 
  *********************************************************************************************************/
 
 const gerarTabelaImparPar = function (numeroInicial, numeroFinal, escolhaDeModo) {
 
-  let inicio = Number(numeroInicial);
-  let fim = Number(numeroFinal);
+  let inicio = Number(numeroInicial).toFixed(1);
+  let fim = Number(numeroFinal).toFixed(1);
   let escolha = escolhaDeModo;
   let status = true;
 
