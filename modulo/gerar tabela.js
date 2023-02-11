@@ -1,71 +1,55 @@
-const calculoParImpar = function (numeroInicial, numeroFinal, escolhaDeModo) {
+/*********************************************************************************************************
+ * Autor: Lohannes
+ * Data: 11/02/2023
+ * Versão: 1.0.2.11.23
+ * Objetivo: Gerar uma ou duas tabelas que apresentarão números pares ou impares entre números escolhidos. 
+ *********************************************************************************************************/
 
-  let valor1 = Number(String(numeroInicial).replace(',', '.'));
+const gerarTabelaImparPar = function (numeroInicial, numeroFinal, escolhaDeModo) {
 
-  let valor2 = Number(String(numeroFinal).replace(',','.'));
-
-  let escolha = escolhaDeModo.toUpperCase();
-
+  let inicio = Number(numeroInicial);
+  let fim = Number(numeroFinal);
+  let escolha = escolhaDeModo;
   let status = true;
 
-  if (valor1 == 0 || valor2 == 0)
-
+  if (inicio == 0 || fim == 0) {
     status = false;
-
-  else if (isNaN(valor1) || isNaN(valor2))
-
+  } else if (isNaN(inicio) || isNaN(fim)) {
     status = false;
-
-  else {
-
-    if(escolha == 'PAR' || escolha == 'AMBOS'){
-
+  } else if(inicio > fim) {
+    status = false;
+  } else if(inicio == fim){
+    status = false;
+  } else if(inicio < 0 || inicio > 500 || fim < 100 || fim > 1000) {
+    status = false;
+  } else {
+    if (escolha == 'PAR' || escolha == 'AMBOS') {
       console.log('\nTabela de Números Pares');
-
       let contadorPares = 0;
-
-      for (i = valor1; i <= valor2; i++) {
-
-        if (i % 2 == 0) { 
-
-          console.log(i, 'par')
-
+      for (i = inicio; i <= fim; i++) {
+        if (i % 2 == 0) {
+          console.log(i, '- par')
           contadorPares++
-
         }
-
       }
-
       console.log('Quantidade de Pares encontrados: ' + contadorPares)
-
     }
 
-    if(escolha == 'IMPAR' || escolha == 'AMBOS'){
-
+    if (escolha == 'IMPAR' || escolha == 'AMBOS') {
       console.log('\n\nTabela de Números Impares');
-
       let contadorImpares = 0;
-
-      for (i = valor1; i <= valor2; i++) {
-
-        if (i % 2 != 0) { 
-
-          console.log(i, 'impar')
-
+      for (i = inicio; i <= fim; i++) {
+        if (i % 2 != 0) {
+          console.log(i, '- impar')
           contadorImpares++
-
         }
-
       }
-
       console.log('Quantidade de Impares encontrados: ' + contadorImpares)
-
     }
-
   }
-
   return status;
-
 }
 
-calculoParImpar(5,10,'AMBOS');
+module.exports = {
+  gerarTabelaImparPar
+}
