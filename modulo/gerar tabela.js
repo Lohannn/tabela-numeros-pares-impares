@@ -7,8 +7,8 @@
 
 const gerarTabelaImparPar = function (numeroInicial, numeroFinal, escolhaDeModo) {
 
-  let inicio = Number(numeroInicial).toFixed(1);
-  let fim = Number(numeroFinal).toFixed(1);
+  let inicio = parseInt(numeroInicial);
+  let fim = parseInt(numeroFinal);
   let escolha = escolhaDeModo;
   let status = true;
 

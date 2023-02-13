@@ -37,7 +37,7 @@ entradaDados.question('Digite um número de início entre 0 e 500: ', function (
                 } else if (valor1 < 0 || valor1 > 500 || valor2 < 100 || valor2 > 1000) {
                     console.log('ERRO: O número inicial deve ser entre 0 e 500 e o número final deve ser entre 100 e 1000.');
                     entradaDados.close();
-                } else if (valor1 > valor2) {
+                } else if (parseInt(valor1) > parseInt(valor2)) {
                     console.log('ERRO: O número inicial não deve ser maior que o número final.');
                     entradaDados.close();
                 } else if (valor1 == valor2) {
